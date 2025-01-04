@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body> 
+
+    <div class="user_card">
+        <h3>LOGIN</h3>
+        <div class="form_container">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <form method="POST" action="">
+                   
+                    <input type="email" name="email" id="id_email" placeholder="EMAIL">
+                    <input type="password" name="password1" id="id_password1" placeholder="PASSWORD">
+                    
+                    <input class="register_btn" type="submit" value="LOG IN">
+                </form>
+           
+                
+              
+                <a href="{% url 'register_page' %}" class="register">NEED TO REGISTER?</a>
+                <a href="{% url 'register_page' %}" class="register">GUEST TEST BUTTON not coded yet </a>
+
+            </form>
+        </div>
+        {% for message in messages %} <!-- habe to come backt o this to show messeges for login page-->
+            <p id="messages">{{message}}</p>
+        {%  endfor %}
+    </div>
+
+</body>
+</html>

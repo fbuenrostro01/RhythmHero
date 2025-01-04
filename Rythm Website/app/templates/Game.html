@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="player">
+        <audio id="audioPlayer" controls>
+            <source src="{% static 'daftpunk.mp3' %}" type="audio/mp3">
+        </audio>
+
+        <div class="button-row">
+            <button class="big-button" id="playButton">Play</button>
+            <button class="big-button" id="pauseButton">Pause</button>
+        </div>
+
+        <div class="button-row">
+            <button class="big-button-vocals" id="work_it">Work it</button>
+            <button class="big-button-vocals" id="make_it">Make it</button>
+            <button class="big-button-vocals" id="do_it">Do it</button>
+            <button class="big-button-vocals" id="makes_us">Makes us</button>
+        </div>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+
+        playButton.addEventListener('click', () => {
+            audioPlayer.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            audioPlayer.pause();
+        });
+
+        // at some point ill have to make a file script in a foler if it gets too long too
+        function playSound(soundFile) {
+            audioPlayer.src = soundFile; 
+            audioPlayer.load(); 
+            audioPlayer.play(); 
+        }
+
+
+        document.getElementById('work_it').addEventListener('click', () => {
+            playSound('{% static "work_it.mp3" %}'); 
+        });
+
+        document.getElementById('make_it').addEventListener('click', () => {
+            playSound('{% static "make_it.mp3" %}'); 
+        });
+
+        document.getElementById('do_it').addEventListener('click', () => {
+            playSound('{% static "do_it.mp3" %}'); 
+        });
+        document.getElementById('makes_us').addEventListener('click', () => {
+            playSound('{% static "makes_us.mp3" %}'); 
+        });
+
+
+    </script>
+
+</body>
+</html>
