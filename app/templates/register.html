@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body> 
+
+    <div class="user_card">
+        <h3>REGISTER ACCOUNT</h3>
+        <div class="form_container">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <form method="POST" action="">
+                    <input type="text" name="username" id="id_username" placeholder="USERNAME">
+                    <input type="email" name="email" id="id_email" placeholder="EMAIL">
+                    <input type="password" name="password1" id="id_password1" placeholder="PASSWORD">
+                    <input type="password" name="password2" id="id_password2" placeholder="TYPE PASSWORD AGAIN">
+                    <input class="login_btn" type="submit" value="Register">
+                    {{form.errors}}<!-- thorws erorr if that stff they type is wrong-->
+                </form>
+                <!--  I had extra it put it in the form above or might keep it until psush for testing other login-->
+                <input class="login_btn" type="submit" value="Register">
+                
+              
+                <a href="{% url 'login_page' %}" class="register">Already Registered?</a>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
